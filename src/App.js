@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
-
+import SurjoPay from './Components/Pages/SurjoPay';
+// import useCheckOut from './hook/useCheckOut';
+import useToken from './hook/useToken';
 function App() {
+
+const tokenDetails=useToken();
+// const checkOutDetails =useCheckOut();
+const {token,store_id}= tokenDetails;
+// console.log(checkOutDetails);
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <SurjoPay></SurjoPay>
+
     </div>
   );
 }
