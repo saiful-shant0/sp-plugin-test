@@ -1,27 +1,31 @@
+import axios from "axios";
 import React, { useState } from "react";
 import "../../hook/useCheckOut.js";
+import useCheckOut from "../../hook/useCheckOut.js";
+import useToken from "../../hook/useToken.js";
 import "./Surjopay.css";
 
 const SurjoPay = () => {
   const [inputs, setInputs] = useState({});
-  
 
-  
+  const checkOutDetails = useCheckOut();
+  const tokenDetails = useToken();
+  const {} = checkOutDetails;
+
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
-  
-
   const handleSubmit = (event) => {
     event.preventDefault();
-
-   
-    localStorage.setItem('userData', JSON.stringify(inputs))
-    
-  
+    axios.post("http://localhost:3001/profile", inputs).then((res) => {
+      if (res.data.insertedId) {
+        alert("added successfully");
+      }
+    });
+    //this.props.history.push(path)
   };
   return (
     <div className="add-service my-5 container">

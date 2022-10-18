@@ -1,20 +1,22 @@
 import './App.css';
-import SurjoPay from './Components/Pages/SurjoPay';
-// import useCheckOut from './hook/useCheckOut';
+import useCheckOut from './hook/useCheckOut';
 import useToken from './hook/useToken';
 function App() {
 
 const tokenDetails=useToken();
-// const checkOutDetails =useCheckOut();
-const {token,store_id}= tokenDetails;
-// console.log(checkOutDetails);
+ const checkOutDetails =useCheckOut();
+//const {token,store_id}= tokenDetails;
+//const checkOutDetails=useCheckOut();
+//const {order_id}=checkOutDetails;
+ console.log(tokenDetails);
+ console.log(checkOutDetails);
 
 
 
   return (
     <div >
-      <SurjoPay></SurjoPay>
-
+      fhrehf
+      {/* <SurjoPay></SurjoPay> */}
     </div>
   );
 }

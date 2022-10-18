@@ -12,9 +12,13 @@ const requestOptions = {
 };
 
  useEffect(()=>{
-    fetch('https://sandbox.shurjopayment.com/api/get_token',requestOptions)
-    .then(res => res.json())
-    .then(data => setTokenDetails(data))
+
+    const fetchData = async () => {
+        const data = await fetch('https://sandbox.shurjopayment.com/api/get_token',requestOptions)
+        .then(res => res.json())
+        .then(data => setTokenDetails(data))
+      }
+      fetchData();
 
 },[]);
 return tokenDetails;
